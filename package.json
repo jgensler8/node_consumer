@@ -1,0 +1,22 @@
+{
+  "name": "node_consumer",
+  "version": "1.0.0",
+  "description": "node_consumer =============",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgensler8/node_consumer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgensler8/node_consumer/issues"
+  },
+  "homepage": "https://github.com/jgensler8/node_consumer",
+  "dependencies": {
+    "kafkaesque": "^0.1.1"
+  }
+}
