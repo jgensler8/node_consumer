@@ -44,7 +44,7 @@ kafkaesque.tearUp(function() {
   kafkaesque.poll({topic: 'fridge', partition: 0}, 
                   function(err, kafka) {
     // handle each message
-    kafka.on('message', function(message, commit) {
+    kafka.on('message', function(message, commit, cb) {
       //add to redis
 
       //add to hbase
@@ -52,6 +52,7 @@ kafkaesque.tearUp(function() {
       // once a message has been successfull handled, call commit to advance this 
       // consumers position in the topic / parition 
       console.log(commit);
+      console.log(cb);
       commit();
     });
     // report errors
