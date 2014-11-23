@@ -26,10 +26,7 @@ if(commander.redisPort === undefined) commander.redisPort = 6379;
 var hbase = require('hbase')({ host: commander.hbaseHost, port: commander.hbasePort});
 
 var redis = require('redis'),
-  client = redis.createClient({
-    host: commander.redisHost,
-    port: commander.redisPort
-  });
+  client = redis.createClient( commander.redisPort, commander.redisHost);
 
 // create a kafkaesqe client, providing at least one broker
 var kafkaesque = require('kafkaesque')({
