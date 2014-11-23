@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/jgensler8/node_consumer",
   "dependencies": {
-    "kafkaesque": "^0.1.1"
+    "commander": "^2.5.0",
+    "hbase": "^0.1.7",
+    "hiredis": "^0.1.17",
+    "kafkaesque": "^0.1.1",
+    "redis": "^0.12.1"
   }
 }
