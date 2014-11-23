@@ -51,6 +51,7 @@ kafkaesque.tearUp(function() {
       console.log(JSON.stringify(message));
       // once a message has been successfull handled, call commit to advance this 
       // consumers position in the topic / parition 
+      console.log(commit);
       commit();
     });
     // report errors
