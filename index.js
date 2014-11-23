@@ -46,8 +46,10 @@ kafkaesque.tearUp(function() {
     // handle each message
     kafka.on('message', function(index, message, commit) {
       //add to redis
-            
+      client.set(message.id, JSON.stringify(message));            
       //add to hbase
+
+      //print to console
       console.log(JSON.stringify(message), message.value);
       // once a message has been successfull handled, call commit to advance this 
       // consumers position in the topic / parition 
