@@ -46,7 +46,7 @@ kafkaesque.tearUp(function() {
     // handle each message
     kafka.on('message', function(index, message, commit) {
       //add to redis
-
+            
       //add to hbase
       console.log(JSON.stringify(message), message.value);
       // once a message has been successfull handled, call commit to advance this 
