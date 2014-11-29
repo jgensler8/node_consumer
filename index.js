@@ -52,7 +52,7 @@ kafkaesque.tearUp(function() {
       //add to hbase
 
       //print to console
-      //console.log(JSON.stringify(message), message.value);
+      console.log(message.value.id, message.value);
       
       // once a message has been successfull handled, call commit to advance this
       // consumers position in the topic / parition
