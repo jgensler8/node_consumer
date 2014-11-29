@@ -37,6 +37,8 @@ var kafkaesque = require('kafkaesque')({
 
 // tearup the client
 kafkaesque.tearUp(function() {
+  console.log("Kafka connected...");
+  
   // poll the testing topic, kafakesque will determine the lead broker for this
   // partition / topic pairing and will emit messages as they become available
   // kafakesque will maintain the read position on the topic based on calls to
@@ -50,7 +52,8 @@ kafkaesque.tearUp(function() {
       //add to hbase
 
       //print to console
-      console.log(JSON.stringify(message), message.value);
+      //console.log(JSON.stringify(message), message.value);
+      
       // once a message has been successfull handled, call commit to advance this
       // consumers position in the topic / parition
       commit();
