@@ -39,20 +39,20 @@ var kafkaesque = require('kafkaesque')({
 kafkaesque.tearUp(function() {
   // poll the testing topic, kafakesque will determine the lead broker for this
   // partition / topic pairing and will emit messages as they become available
-  // kafakesque will maintain the read position on the topic based on calls to 
+  // kafakesque will maintain the read position on the topic based on calls to
   // commit()
-  kafkaesque.poll({topic: 'fridge', partition: 0}, 
+  kafkaesque.poll({topic: 'fridge', partition: 0},
                   function(err, kafka) {
     // handle each message
     kafka.on('message', function(index, message, commit) {
       //add to redis
-      client.set(message.id, JSON.stringify(message));            
+      client.hmset(message.id, JSON.stringify(message));
       //add to hbase
 
       //print to console
       console.log(JSON.stringify(message), message.value);
-      // once a message has been successfull handled, call commit to advance this 
-      // consumers position in the topic / parition 
+      // once a message has been successfull handled, call commit to advance this
+      // consumers position in the topic / parition
       commit();
     });
     // report errors
