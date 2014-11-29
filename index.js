@@ -46,7 +46,7 @@ kafkaesque.tearUp(function() {
     // handle each message
     kafka.on('message', function(index, message, commit) {
       //add to redis
-      client.hmset(message.id, JSON.stringify(message));
+      client.hset(message.id, message.id, JSON.stringify(message));
       //add to hbase
 
       //print to console
