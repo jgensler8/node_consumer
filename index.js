@@ -28,6 +28,8 @@ var hbase = require('hbase')({ host: commander.hbaseHost, port: commander.hbaseP
 var redis = require('redis'),
   client = redis.createClient( commander.redisPort, commander.redisHost);
 
+console.log(commander.kafkaHost, commander.kafkaPort, commander.id);
+
 // create a kafkaesqe client, providing at least one broker
 var kafkaesque = require('kafkaesque')({
   brokers: [{host: commander.kafkaHost, port: commander.kafkaPort}],
