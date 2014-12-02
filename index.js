@@ -35,7 +35,7 @@ var kafkaesque = require('kafkaesque')({
   maxBytes: 2000000
 });
 
-// tearup the client
+// tearup (start) the client
 kafkaesque.tearUp(function() {
   console.log("Kafka connected...");
   
