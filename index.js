@@ -13,7 +13,7 @@ commander
   .option('-rp, --redis-port [n]', 'Redis port to cionnect to.', parseInt)
   .parse(process.argv);
 
-if(commander.id === undefined) commander.id = ((Math.random() + 10000000) % 10000000);
+if(commander.id === undefined) commander.id = "node-consumer-" + ((Math.random() + 10000000) % 10000000);
 if(commander.kafkaHost === undefined) commander.kafkaHost = 'kafka';
 if(commander.kafkaPort === undefined) commander.kafkaPort = 9092;
 if(commander.zookeeperHost === undefined) commander.zookeeperHost = 'zookeeper';
@@ -31,7 +31,7 @@ var redis = require('redis'),
 // create a kafkaesqe client, providing at least one broker
 var kafkaesque = require('kafkaesque')({
   brokers: [{host: commander.kafkaHost, port: commander.kafkaPort}],
-  clientId: 'node-consumer',
+  clientId: commander.id,
   maxBytes: 2000000
 });
 
